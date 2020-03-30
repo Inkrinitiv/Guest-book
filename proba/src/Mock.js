@@ -26,7 +26,7 @@ class Vivod_iz_mass extends React.Component{
         const newName = this.Name.value;
         const newText = this.Text.value;
         const newId = this.state.Mass.map((obn,i) => obn.id = i )
-        if (newName.trim()  === "" && newText.trim() === "") {
+        if (newName.trim()  === "" || newText.trim() === "") {
             return  null;
         }
         else {
