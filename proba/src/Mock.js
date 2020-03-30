@@ -54,19 +54,32 @@ class Vivod_iz_mass extends React.Component{
         return (
             <div className='App'>
                 <div>
+                    <h2>Введите ваше ФИО</h2>
                     <input type='Text'
                            placeholder='Введите ваше ФИО' ref={(input)=>{this.Name = input}}
                     />
+                    <h2>Напишите отзыв</h2>
                     <input type='Text'
                            placeholder='Напишите отзыв' ref={(input)=>{this.Text = input}}/>
+                </div>
+                <br/>
+                <div>
+                    <button type='Button' onClick={(e) => this.onChange(e)}>
+                        Добавить сообщение
+                    </button>
+                </div>
+                    <div>
+                    <button type='Button' onClick={(mem) => this.Change_memory()}>
+                        Расширить пулл сообщений на 5
+                    </button>
                 </div>
                 <div>
                     {Mass.map((item,i)=>{
                         if (i < Memory) {
                             return (
                                 <div key={i}>
-                                    {item.N}
-                                    {item.M}
+                                   <h3> {item.N}</h3>
+                                    <h4>{item.M}</h4>
                                 </div>
                             );
                         } else {
@@ -77,14 +90,7 @@ class Vivod_iz_mass extends React.Component{
                 <div>
                     
                 </div>
-                <div>
-                    <button type='Button' onClick={(e) => this.onChange(e)}>
-                        Добавить сообщение
-                    </button>
-                    <button type='Button' onClick={(mem) => this.Change_memory()}>
-                        Расширить пулл сообщений на 5
-                    </button>
-                </div>
+
             </div>
         );
     }
