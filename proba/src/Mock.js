@@ -1,25 +1,5 @@
 import React, {useState} from 'react';
-import axios from 'axios'
 import './App.css';
-
- export  function Dlya_Mass() {
-    const newMass = [
-        { name:'vv' , msg:'1',id:''},
-        { name:'ii' , msg:'2',id:''},
-        { name:'vv' , msg:'3',id:''},
-        { name:'ii' , msg:'4',id:''},
-        { name:'vv' , msg:'5',id:''},
-        { name:'ii' , msg:'6',id:''},
-        { name:'vv' , msg:'7',id:''},
-        { name:'ii' , msg:'8',id:''},
-        { name:'vv' , msg:'9',id:''},
-        { name:'ii' , msg:'10',id:''},
-        { name:'vv' , msg:'11',id:''},
-        { name:'ii' , msg:'12',id:''},
-        { name:'vv' , msg:'13',id:''},
-        { name:'ii' , msg:'14',id:''},
-        { name:'vv' , msg:'15',id:''}]
-}
 
 class Vivod_iz_mass extends React.Component{
     constructor(props) {
@@ -46,13 +26,17 @@ class Vivod_iz_mass extends React.Component{
         const newName = this.Name.value;
         const newText = this.Text.value;
         const newId = this.state.Mass.map((obn,i) => obn.id = i )
+        if (newName.trim()  === "" && newText.trim() === "") {
+            return  null;
+        }
+        else {
+            this.setState({
+                Mass: [{N: newName, M: newText, id: newId}, ...this.state.Mass]
+            }, () => {
 
-    this.setState({
-        Mass:[ {N:newName,M:newText,id:newId}, ...this.state.Mass]
-    }, ()=> {
-
-        console.log(this.state)
-    })
+                console.log(this.state)
+            })
+        }
     }
     Change_memory(){
         const {Memory} = this.state;
@@ -70,8 +54,11 @@ class Vivod_iz_mass extends React.Component{
         return (
             <div className='App'>
                 <div>
-                    <input type='Text' ref={(input)=>{this.Name = input}}/>
-                    <input type='Text' ref={(input)=>{this.Text = input}}/>
+                    <input type='Text'
+                           placeholder='Введите ваше ФИО' ref={(input)=>{this.Name = input}}
+                    />
+                    <input type='Text'
+                           placeholder='Напишите отзыв' ref={(input)=>{this.Text = input}}/>
                 </div>
                 <div>
                     {Mass.map((item,i)=>{
