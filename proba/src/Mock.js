@@ -5,27 +5,27 @@ class Vivod_iz_mass extends React.Component{
     constructor(props) {
         super(props);
         this.state = {Mass:[
-                {N:'A',M:'1',id:'0'},
-                {N:'B',M:'2',id:'1'},
-                {N:'C',M:'3',id:'2'},
-                {N:'D',M:'4',id:'3'},
-                {N:'I',M:'5',id:'4'},
-                {N:'F',M:'6',id:'5'},
-                {N:'G',M:'7',id:'6'},
-                {N:'H',M:'8',id:'7'},
-                {N:'O',M:'9',id:'8'},
-                {N:'Q',M:'10',id:'9'},
-                {N:'R',M:'11',id:'10'},
-                {N:'L',M:'12',id:'11'}
+                {N:'A',M:'1',id:0},
+                {N:'B',M:'2',id:1},
+                {N:'C',M:'3',id:2},
+                {N:'D',M:'4',id:3},
+                {N:'I',M:'5',id:4},
+                {N:'F',M:'6',id:5},
+                {N:'G',M:'7',id:6},
+                {N:'H',M:'8',id:7},
+                {N:'O',M:'9',id:8},
+                {N:'Q',M:'10',id:9},
+                {N:'R',M:'11',id:10},
+                {N:'L',M:'12',id:11}
             ],Memory:5};
     }
 
     onChange(e){
-        e.preventDefault()
-        const {Mass} = this.state;
-        const newName = this.Name.value;
-        const newText = this.Text.value;
-        const newId = this.state.Mass.map((obn,i) => obn.id = i )
+       e.preventDefault()
+       const {Mass} = this.state;
+       const newName = this.Name.value;
+       const newText = this.Text.value;
+       const newId = (Mass.length -1) + 1;
         if (newName.trim()  === "" || newText.trim() === "") {
             return  null;
         }
@@ -38,6 +38,7 @@ class Vivod_iz_mass extends React.Component{
             })
         }
     }
+
     Change_memory(){
         const {Memory} = this.state;
 
